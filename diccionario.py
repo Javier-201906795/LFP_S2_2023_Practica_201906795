@@ -41,3 +41,25 @@ if 'bodeaga-B' in productos['pera']['ubicacion']:
     print("SI hay peras en bodega-b")
 else:
     print("no hay peras en bodega-b")
+
+
+print()
+print('----------------------------------------')
+#Diccionarios
+
+inventario = {}
+
+#inventario['Bodega-A'] ={'productos':['manzana']}
+inventario['Bodega-A'] ={'productos':{'nombre':'manzana'}}
+
+
+#print(inventario)
+print(inventario['Bodega-A'])
+print(inventario['Bodega-A']['productos'])
+
+
+
+inventario['Bodega-A']['productos']
+
+
+
