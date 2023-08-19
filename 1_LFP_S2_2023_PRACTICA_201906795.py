@@ -65,9 +65,9 @@ def abrirarchivo(extensionvalida):
    print('Nota 2: si desea salir presione el numero " 4 ".')
    print('-------------------------------------------------------------------')
    
-   #ruta = input("Ingrese la ruta del archivo: ")
+   ruta = input("Ingrese la ruta del archivo: ")
    #Automatizacion
-   ruta = 'test1.inv'
+   #ruta = 'test1.inv'
 
    while True:
       #print('ruta', ruta)
