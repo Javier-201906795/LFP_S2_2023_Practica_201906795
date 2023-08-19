@@ -118,14 +118,17 @@ def ordenarinventario():
    listaDatos = archivo_local['data']
    
 
-   #Agregar ubicaciones (Bodegas) a inventario
+   
    for i in range (0,len(listaDatos)):
+      #++++++++++++++++++++++++++++++++++++++++++++
+      #Agregar ubicaciones (Bodegas) a inventario
       ubicacion = listaDatos[i][3]
       if ubicacion in inventario:
          print(str(ubicacion) +' ya se encuentra en el inventario')
       else:
          print('agregando nueva ubicacion.')
-         inventario[str(ubicacion)] = None
+         inventario[str(ubicacion)] = []
+      #++++++++++++++++++++++++++++++++++++++++++++
 
    #Agregar productos a inventario
    for i in range (0,len(listaDatos)):
@@ -139,10 +142,13 @@ def ordenarinventario():
       #Validar instruccion
       if instruccion == 'crear_producto':
          #Validar si existe el producto
-         # if (producto in inventario[str(tempubicacion)]):
-         #    print('agregando produto.')
-         # else:
-         #    print('producto: ', producto, 'NO se agrego a ', tempubicacion, ' porque ya existe el producto')
+         if (producto in inventario[str(tempubicacion)]):
+            print('producto: ', producto, 'NO se agrego a ', tempubicacion, ' porque ya existe el producto')
+         else:
+            print('agregando produto ', producto, ' a ', tempubicacion)
+            #inventario[str(tempubicacion)] = {str(producto):{'cantidad':float(cantidad),'precio':float(precio)}}            
+            #inventario[str(tempubicacion)][str(producto)] = {'cantidad':float(cantidad),'precio':float(precio)}
+            print('PRODUCTO',producto,str(producto))
 
       else:
          print('no se agrego el producto porque la instruccion es diferente.\n'+ str(instruccion) +' != crear_producto')
