@@ -25,26 +25,34 @@ def mensajebienvenida():
 
 
 def menu():
-    opcionvalida = 0
+   opcionvalida = 0
 
-    mensaje =  '# Sistema de inventario:\n\n'
-    mensaje += '1) Cargar inventario inicial\n'
-    mensaje += '2) Cargar instrucciones movimientos\n'
-    mensaje += '3) Crear informe de inventario\n'
-    mensaje += '4) Salir\n'
-    mensaje += '\n'
-    print(mensaje)
-    #Ingresar opcion
-    opcion = input()
-    #Validar opcion
-    try:
+   mensaje =  '# Sistema de inventario:\n\n'
+   mensaje += '1) Cargar inventario inicial\n'
+   mensaje += '2) Cargar instrucciones movimientos\n'
+   mensaje += '3) Crear informe de inventario\n'
+   mensaje += '4) Salir\n'
+   mensaje += '\n'
+   print(mensaje)
+   #Ingresar opcion
+   opcion = input()
+   #Validar opcion
+   try:
       opcion = int(opcion)
       opcionvalida = opcion
-    except:
+   except:
       print("Ingrese un opcion numerica, porfavor vuelva a intentar.")
      
 
-    return opcionvalida
+    #SWITCH
+   if opcion == 1:
+      opcion1()
+   elif opcion == 2:
+      opcion2()
+   elif opcion == 3:
+      opcion3()
+   elif opcion == 4:
+      opcion4()
 
 
 def abrirarchivo(extensionvalida):
@@ -225,19 +233,8 @@ def opcion4():
 
 print(mensajebienvenida()) 
 
-opcionmenu = menu()
-#Automatizacion
-#opcionmenu = 2
+menu()
 
-#SWITCH
-if opcionmenu == 1:
-   opcion1()
-elif opcionmenu == 2:
-   opcion2()
-elif opcionmenu == 3:
-   opcion3()
-elif opcionmenu == 4:
-   opcion4()
 
 
 ################################################################
