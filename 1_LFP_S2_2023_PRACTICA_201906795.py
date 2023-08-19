@@ -127,7 +127,7 @@ def ordenarinventario():
       if ubicacion in inventario:
          print(str(ubicacion) +' ya se encuentra en el inventario')
       else:
-         print('agregando nueva ubicacion.')
+         print('agregando nueva ubicacion ', ubicacion)
          inventario[str(ubicacion)] = {}
 
    #++++++++++++++++++++++++++++++++++++++++++++
@@ -149,7 +149,6 @@ def ordenarinventario():
             print('agregando produto ', producto, ' a ', tempubicacion)
             inventario[str(tempubicacion)][str(producto)] = {'cantidad':float(cantidad),'precio':float(precio)}
             
-
       else:
          print('no se agrego el producto porque la instruccion es diferente.\n'+ str(instruccion) +' != crear_producto')
       
@@ -157,7 +156,7 @@ def ordenarinventario():
    print('-------------------------------')
    print(inventario)
    print('-------------------------------')
-   print(inventario['BodegaA'])
+   
 
 
     
@@ -176,6 +175,10 @@ def opcion1():
      #print(archivo_local['data'])
 
      ordenarinventario()
+
+     print('********************************')
+     print('* Lista ordenada correctamente *')
+     print('********************************')
 
   else:
      print('Inventario NO fueron leidos.')
