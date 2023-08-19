@@ -124,8 +124,8 @@ def opcion1():
      print('************************************')
      print('* Inventario cargado correctamente *')
      print('************************************')
-     print(archivo_local['extension'])
-     print(archivo_local['data'])
+     #print(archivo_local['extension'])
+     #print(archivo_local['data'])
   else:
      print('Inventario NO cargado.')
   
@@ -135,7 +135,20 @@ def opcion1():
 
 #/////////////////////////////////////////////////
 def opcion2():
-   print('opcion 2')
+   print('# Cargar instrucciones movimientos')
+
+   abrirarchivo('.mov')
+
+   #Evaluar
+   if archivo_local['validador'] == True:
+      print('************************************')
+      print('* Inventario cargado correctamente *')
+      print('************************************')
+      print(archivo_local['extension'])
+      print(archivo_local['data'])
+   else:
+      print('Inventario NO cargado.')
+   
    
 
 #/////////////////////////////////////////////////
