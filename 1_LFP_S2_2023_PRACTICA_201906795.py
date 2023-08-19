@@ -117,7 +117,10 @@ def abrirarchivo(extensionvalida):
 
 
    except:
-      print("Error: Al abrir el archivo.")
+      print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+      print('! Error: Al abrir el archivo. !')
+      print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+      menu()
     
 #/////////////////////////////////////////////////
 
@@ -181,28 +184,33 @@ def ordenarmovimientos():
 
       #++++++++++++++++++++++++++++++++++++++++++++
       # [ AGREGAR STOCK ]
-      #Producto Existe 
-      #Valida existencia ubicacion
-      #if
+      if (movimiento == 'agregar_stock'):
+         print('agregar')
+         #Producto Existe 
+         #Valida existencia ubicacion
+         if (ubicacion in inventario): 
+            print('si existe la ubicacion')
+            #Validar existencia producto
+            ##if
+            
+         else:
+            print('ERROR no se encontro la ubicacion')
+            
 
-      #Validar existencia producto
-      ##if
-
-      #else
-      #Error
-
+         
+      elif (movimiento == 'vender_producto'):
+         print('vender')
       #++++++++++++++++++++++++++++++++++++++++++++
       # [ VENDER PRODUCTO ]
+         #Validar existencia ubicacion (Bodega)
+         #if
 
-      #Validar existencia ubicacion (Bodega)
-      #if
+         #Validar existencia producto
+         ##if
 
-      #Validar existencia producto
-      ##if
-
-      #Validar operacion valida
-      ###if
-         #Validar operacion no den numero negativo (sin existencias)
+         #Validar operacion valida
+         ###if
+            #Validar operacion no den numero negativo (sin existencias)
 
     
 
