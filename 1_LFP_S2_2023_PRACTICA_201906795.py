@@ -3,12 +3,12 @@ import os
 
 
 #Variables globales
-archivo = {'extension': None, 'validador': False, 'data': None}
+archivo_local = {'extension': None, 'validador': False, 'data': None}
 
 #Inicializar variables globales
-archivo['extension']= None
-archivo['validador']= False
-archivo['data']= None
+archivo_local['extension']= None
+archivo_local['validador']= False
+archivo_local['data']= None
 
 
 
@@ -46,7 +46,7 @@ def menu():
 
 
 def abrirarchivo(extensionvalida):
-
+   archivo_local['validador']= False
    #Mensaje
    print('\nSeleccione un archivo'+ str(extensionvalida)+'\n')
    print('-------------------------------------------------------------------')
@@ -95,9 +95,11 @@ def abrirarchivo(extensionvalida):
       print(listaDatos[0][0]) 
 
       try:
-         archivo['extension']= str(extensionvalida) 
-         archivo['validador']= True
-         
+         archivo_local['extension']= str(extensionvalida)
+         archivo_local['validador']= True
+         archivo_local['data']= listaDatos
+
+         print(archivo_local['validador'], archivo_local['data'])
       except:
          print("Error al almacenar variables")
 
@@ -116,7 +118,17 @@ def abrirarchivo(extensionvalida):
 #/////////////////////////////////////////////////
 def opcion1():
   print('# Cargar inventario inicial:')
+  
   abrirarchivo('.inv')
+
+  #Evaluar
+  if archivo_local['validador'] == True:
+     print('Inventario cargado correctamente')
+     print(archivo_local['extension'])
+     print(archivo_local['data'])
+  else:
+     print('Inventario NO cargado.')
+  
   
 
 
@@ -124,6 +136,7 @@ def opcion1():
 #/////////////////////////////////////////////////
 def opcion2():
    print('opcion 2')
+   
 
 #/////////////////////////////////////////////////
 def opcion3():
