@@ -185,7 +185,9 @@ def opcion4():
 
 print(mensajebienvenida()) 
 
-opcionmenu = menu()
+#opcionmenu = menu()
+#Automatizacion
+opcionmenu = 1
 
 #SWITCH
 if opcionmenu == 1:
