@@ -121,9 +121,9 @@ def opcion1():
 
   #Evaluar
   if archivo_local['validador'] == True and archivo_local['extension'] == extensionarchivo:
-     print('************************************')
-     print('* Inventario leidos correctamente *')
-     print('************************************')
+     print('*******************************')
+     print('* Archivo leido correctamente *')
+     print('*******************************')
      #print(archivo_local['data'])
   else:
      print('Inventario NO fueron leidos.')
@@ -140,10 +140,10 @@ def opcion2():
 
   #Evaluar
   if archivo_local['validador'] == True and archivo_local['extension'] == extensionarchivo:
-     print('************************************')
-     print('* Movimiento leidos correctamente *')
-     print('************************************')
-     print(archivo_local['data'])
+     print('*******************************')
+     print('* Archivo leido correctamente *')
+     print('*******************************')
+     #print(archivo_local['data'])
   else:
      print('Inventario NO fueron leidos.')
    
