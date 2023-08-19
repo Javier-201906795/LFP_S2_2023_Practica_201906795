@@ -121,13 +121,17 @@ def ordenarinventario():
    
    for i in range (0,len(listaDatos)):
       #++++++++++++++++++++++++++++++++++++++++++++
-      #Agregar ubicaciones (Bodegas) a inventario
+    
       ubicacion = listaDatos[i][3]
+
+
+
+      #Evaluar ubicacion
       if ubicacion in inventario:
          print(str(ubicacion) +' ya se encuentra en el inventario')
       else:
          print('agregando nueva ubicacion.')
-         inventario[str(ubicacion)] = []
+         inventario[str(ubicacion)] = {}
       #++++++++++++++++++++++++++++++++++++++++++++
 
    #Agregar productos a inventario
@@ -147,7 +151,7 @@ def ordenarinventario():
          else:
             print('agregando produto ', producto, ' a ', tempubicacion)
             #inventario[str(tempubicacion)] = {str(producto):{'cantidad':float(cantidad),'precio':float(precio)}}            
-            #inventario[str(tempubicacion)][str(producto)] = {'cantidad':float(cantidad),'precio':float(precio)}
+            inventario[str(tempubicacion)][str(producto)] = {'cantidad':float(cantidad),'precio':float(precio)}
             print('PRODUCTO',producto,str(producto))
 
       else:
