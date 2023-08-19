@@ -46,47 +46,70 @@ def menu():
 
 
 def abrirarchivo(extensionvalida):
-    #Mensaje
-    print('\nSeleccione un archivo'+ str(extensionvalida)+'\n')
-    print('-------------------------------------------------------------------')
-    print('Nota: el archivo debe estar en la misma carpeta que el proyecto.')
-    print('Nota 2: si desea salir presione el numero " 4 ".')
-    print('-------------------------------------------------------------------')
-    
-    ruta = input("Ingrese la ruta del archivo: ")
 
-    while True:
-        print('ruta', ruta)
-        #Salir 
-        if ruta == '4':
-           break
-        #Validar extension
-        nombre, extension = os.path.splitext(ruta)
-        print('extension',extension)
-        if extension == str(extensionvalida):
-            print("\nArchivo valido\n")
-            break
-        else:
-            print("\nArchivo invalido\n")
-            ruta = input("\nIngrese la ruta del archivo: ")
+   #Mensaje
+   print('\nSeleccione un archivo'+ str(extensionvalida)+'\n')
+   print('-------------------------------------------------------------------')
+   print('Nota: el archivo debe estar en la misma carpeta que el proyecto.')
+   print('Nota 2: si desea salir presione el numero " 4 ".')
+   print('-------------------------------------------------------------------')
+   
+   ruta = input("Ingrese la ruta del archivo: ")
 
-    
-    #Abrir archivo  
-    listaDatos = []
-    try:
+   while True:
+      print('ruta', ruta)
+      #Salir 
+      if ruta == '4':
+         break
+      #Validar extension
+      nombre, extension = os.path.splitext(ruta)
+      print('extension',extension)
+      if extension == str(extensionvalida):
+         print("\nArchivo valido\n")
+         break
+      else:
+         print("\nArchivo invalido\n")
+         ruta = input("\nIngrese la ruta del archivo: ")
+
+   
+   #Abrir archivo  
+   listaDatos = []
+   try:
       with open(ruta, "r") as archivo:
-        for linea in archivo:
+         for linea in archivo:
             #Array por salto de linea
             array = linea.split('\n')
             for i in range(len(array)):
-                if array[i] == '' or array[i] == ' ':
+               if array[i] == '' or array[i] == ' ':
                   None
-                else:
-                  listaDatos.append(array[i])
-    except:
+               else:
+                  #New array por ; punto y coma
+                  newarray = array[i].split(';')
+                  listaDatos.append(newarray)
+
+
+
+      #Almacenar Archivo
+      print(listaDatos) 
+      print(listaDatos[0]) 
+      print(listaDatos[0][0]) 
+
+      try:
+         archivo['extension']= str(extensionvalida) 
+         archivo['validador']= True
+         
+      except:
+         print("Error al almacenar variables")
+
+
+
+
+
+   except:
       print("Error: Al abrir el archivo.")
     
-    print(listaDatos) 
+
+    
 
     
 
@@ -94,27 +117,7 @@ def abrirarchivo(extensionvalida):
 def opcion1():
   print('# Cargar inventario inicial:')
   abrirarchivo('.inv')
-  # listaDatos = []
-  # print("\nHa seleccionado cargar archivo .inv\n")
-  # ruta = input("Ingrese la ruta del archivo: ")
-
-  # while True:
-  #     nombre, extension = os.path.splitext(ruta)
-  #     if extension == ".inv":
-  #         print("\nArchivo valido\n")
-  #         break
-  #     else:
-  #         print("\nArchivo invalido\n")
-  #         ruta = input("\nIngrese la ruta del archivo: ")
-
-  # with open(ruta, "r") as archivo:
-  #         for linea in archivo:
-  #             array = linea.split(',')
-  #             for i in range(len(array)):
-  #                 listaDatos.append(array[i])
   
-  # print(listaDatos)
-
 
 
 
