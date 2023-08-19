@@ -13,17 +13,39 @@ def mensajebienvenida():
 
 
 def menu():
+    opcionvalida = 0
+
     mensaje =  '# Sistema de inventario:\n\n'
     mensaje += '1) Cargar inventario inicial\n'
     mensaje += '2) Cargar instrucciones movimientos\n'
     mensaje += '3) Crear informe de inventario\n'
     mensaje += '4) Salir\n'
     mensaje += '\n'
-    return mensaje
+    print(mensaje)
+    #Ingresar opcion
+    opcion = input()
+    #Validar opcion
+    try:
+      opcion = int(opcion)
+      opcionvalida = opcion
+    except:
+      print("Ingrese un opcion numerica, porfavor vuelva a intentar.")
+     
+
+    return opcionvalida
 
 
+def opcion1():
+   print('opcion 1')
 
+def opcion2():
+   print('opcion 2')
 
+def opcion3():
+   print('opcion3')
+
+def opcion4():
+   print('opcion4')
 
 
 
@@ -31,17 +53,17 @@ def menu():
 ################################################################
 
 print(mensajebienvenida()) 
-print(menu())
-#Seleccione una opcion
-opcion = input()
-print(opcion)
-#Validar opcion
-try:
-  opcion = int(opcion)
-except:
-  print("Ingrese un opcion numerica, porfavor vuelva a intentar.")
 
+opcionmenu = menu()
 
-if opcion == 1:
-    print('hola')
+print('opcion seleccionada: ', opcionmenu)
 
+#SWITCH
+if opcionmenu == 1:
+   opcion1()
+elif opcionmenu == 2:
+   opcion2()
+elif opcionmenu == 3:
+   opcion3()
+elif opcionmenu == 4:
+   opcion4()
