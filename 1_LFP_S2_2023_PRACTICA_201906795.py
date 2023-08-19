@@ -179,6 +179,30 @@ def ordenarmovimientos():
 
       print(movimiento, producto,cantidad, ubicacion)
 
+      #++++++++++++++++++++++++++++++++++++++++++++
+      # [ AGREGAR STOCK ]
+      #Producto Existe 
+      #Valida existencia ubicacion
+      #if
+
+      #Validar existencia producto
+      ##if
+
+      #else
+      #Error
+
+      #++++++++++++++++++++++++++++++++++++++++++++
+      # [ VENDER PRODUCTO ]
+
+      #Validar existencia ubicacion (Bodega)
+      #if
+
+      #Validar existencia producto
+      ##if
+
+      #Validar operacion valida
+      ###if
+         #Validar operacion no den numero negativo (sin existencias)
 
     
 
