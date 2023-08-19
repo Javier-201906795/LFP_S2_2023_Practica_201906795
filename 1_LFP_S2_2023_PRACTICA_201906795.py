@@ -118,9 +118,16 @@ def ordenarinventario():
    listaDatos = archivo_local['data']
    #Obtener ubicaciones (Bodegas)
    #primer dato
-   print(listaDatos)
-   print(listaDatos[0])
-   
+   #print(listaDatos)
+   #print(listaDatos[0])
+   print(listaDatos[0][3])
+
+   ubicacion = listaDatos[0][3]
+   if ubicacion in inventario:
+      print(str(ubicacion) +'ya se encuentra en el inventario')
+   else:
+      print('Agregar inventario')
+
 
     
 
