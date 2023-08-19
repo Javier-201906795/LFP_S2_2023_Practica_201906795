@@ -129,19 +129,29 @@ def ordenarinventario():
 
    #Agregar productos a inventario
    for i in range (0,len(listaDatos)):
+
       instruccionproducto = listaDatos[i][0]
       instruccion, producto = instruccionproducto.split()
+      cantidad = listaDatos[i][1]
+      precio = listaDatos[i][2]
+      tempubicacion = listaDatos[i][3]
+
       #Validar instruccion
       if instruccion == 'crear_producto':
-         print('agregando produto.')
+         #Validar si existe el producto
+         # if (producto in inventario[str(tempubicacion)]):
+         #    print('agregando produto.')
+         # else:
+         #    print('producto: ', producto, 'NO se agrego a ', tempubicacion, ' porque ya existe el producto')
+
       else:
-         print('no se agrego el producto porque la instruccion es diferente.\n'+'crear_producto != ' + str(instruccion))
+         print('no se agrego el producto porque la instruccion es diferente.\n'+ str(instruccion) +' != crear_producto')
       
-      #print(instruccion)
-      #print(producto)
 
    print('-------------------------------')
    print(inventario)
+   print('-------------------------------')
+   print(inventario['BodegaA'])
 
 
     
