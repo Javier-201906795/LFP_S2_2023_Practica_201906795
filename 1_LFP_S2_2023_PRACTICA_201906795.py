@@ -5,6 +5,7 @@ import os
 #Variables globales
 archivo_local = {'extension': None, 'validador': False, 'data': None}
 inventario = {}
+flagexistenciainventario = False
 
 #Inicializar variables globales
 archivo_local['extension']= None
@@ -180,6 +181,8 @@ def opcion1():
      print('* Lista ordenada correctamente *')
      print('********************************')
 
+     #Validador
+     flagexistenciainventario = True 
   else:
      print('Inventario NO fueron leidos.')
   
@@ -189,19 +192,22 @@ def opcion1():
 
 #/////////////////////////////////////////////////
 def opcion2():
-  print('# Cargar inventario inicial:')
-  extensionarchivo = '.mov'
-  abrirarchivo(extensionarchivo)
+   #Validar si hay inventario
+   if flagexistenciainventario == True:
+      print('# Cargar inventario inicial:')
+      extensionarchivo = '.mov'
+      abrirarchivo(extensionarchivo)
 
-  #Evaluar
-  if archivo_local['validador'] == True and archivo_local['extension'] == extensionarchivo:
-     print('*******************************')
-     print('* Archivo leido correctamente *')
-     print('*******************************')
-     #print(archivo_local['data'])
-  else:
-     print('Inventario NO fueron leidos.')
-   
+      #Evaluar
+      if archivo_local['validador'] == True and archivo_local['extension'] == extensionarchivo:
+         print('*******************************')
+         print('* Archivo leido correctamente *')
+         print('*******************************')
+         print(archivo_local['data'])
+      else:
+         print('Inventario NO fueron leidos.')
+   else:
+     print('Carge un inventario antes para continuar')
    
 
 #/////////////////////////////////////////////////
@@ -219,9 +225,9 @@ def opcion4():
 
 print(mensajebienvenida()) 
 
-#opcionmenu = menu()
+opcionmenu = menu()
 #Automatizacion
-opcionmenu = 1
+#opcionmenu = 2
 
 #SWITCH
 if opcionmenu == 1:
