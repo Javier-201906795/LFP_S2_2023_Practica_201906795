@@ -112,3 +112,30 @@ if 'uva' in inventario['Bodega-A']['productos']:
     print("hay uvas")
 else:
     print("no hay uvass")
+
+
+print()
+print()
+print()
+print()
+print()
+print('----------------------------------------')
+print(inventario['Bodega-A']['productos'])
+print(len(inventario['Bodega-A']['productos']))
+print(list(inventario['Bodega-A']['productos'].items()))
+print(list(inventario['Bodega-A']['productos'].items())[0])
+#Tamaño listado
+print('tamaño listado: ',len(list(inventario['Bodega-A']['productos'].items())[0]))
+
+#Obtener productos nombres
+print(list(list(inventario['Bodega-A']['productos'].items())[0])[0])
+
+#Obtener productos detalle
+print(list(list(inventario['Bodega-A']['productos'].items())[0])[1])
+#print(list(list(list(inventario['Bodega-A']['productos'].items())[0])[1]))
+
+#Obtener cantidad
+print(list(list(inventario['Bodega-A']['productos'].items())[0])[1]['cantidad'])
+
+#Obtener precio
+print(list(list(inventario['Bodega-A']['productos'].items())[0])[1]['precio'])
