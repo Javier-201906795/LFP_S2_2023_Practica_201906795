@@ -4,6 +4,7 @@ import os
 
 #Variables globales
 archivo_local = {'extension': None, 'validador': False, 'data': None}
+inventario = {}
 
 #Inicializar variables globales
 archivo_local['extension']= None
@@ -108,8 +109,16 @@ def abrirarchivo(extensionvalida):
    except:
       print("Error: Al abrir el archivo.")
     
+#/////////////////////////////////////////////////
 
-    
+def ordenarinventario():
+   print('ordenando...')
+   listaDatos = archivo_local['data']
+   #Obtener ubicaciones (Bodegas)
+   #primer dato
+   print(listaDatos)
+   print(listaDatos[0])
+   
 
     
 
@@ -125,6 +134,9 @@ def opcion1():
      print('* Archivo leido correctamente *')
      print('*******************************')
      #print(archivo_local['data'])
+
+     ordenarinventario()
+
   else:
      print('Inventario NO fueron leidos.')
   
