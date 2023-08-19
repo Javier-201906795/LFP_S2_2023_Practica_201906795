@@ -124,7 +124,6 @@ def opcion1():
      print('************************************')
      print('* Inventario cargado correctamente *')
      print('************************************')
-     #print(archivo_local['extension'])
      #print(archivo_local['data'])
   else:
      print('Inventario NO cargado.')
@@ -144,8 +143,7 @@ def opcion2():
      print('************************************')
      print('* Inventario cargado correctamente *')
      print('************************************')
-     #print(archivo_local['extension'])
-     #print(archivo_local['data'])
+     print(archivo_local['data'])
   else:
      print('Inventario NO cargado.')
    
