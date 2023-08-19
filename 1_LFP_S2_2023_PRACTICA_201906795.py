@@ -165,8 +165,19 @@ def ordenarinventario():
    print(inventario)
    print('-------------------------------')
    
-   
-   
+#/////////////////////////////////////////////////
+
+def ordenarmovimientos():
+   print('ordenar movimientos')
+   listaDatos = archivo_local['data']
+   print(listaDatos)
+
+   for i in range (0,len(listaDatos)):
+      movimiento, producto = listaDatos[i][0].split()
+      cantidad = listaDatos[i][1]
+      ubicacion = listaDatos[i][2]
+
+      print(movimiento, producto,cantidad, ubicacion)
 
 
     
@@ -222,7 +233,10 @@ def opcion2():
          print('*******************************')
          print('* Archivo leido correctamente *')
          print('*******************************')
-         print(archivo_local['data'])
+         #print(archivo_local['data'])
+
+         ordenarmovimientos()
+
       else:
          print('Inventario NO fueron leidos.')
    else:
