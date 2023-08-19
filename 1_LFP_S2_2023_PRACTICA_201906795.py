@@ -6,6 +6,7 @@ import os
 archivo_local = {'extension': None, 'validador': False, 'data': None}
 inventario = {}
 flagexistenciainventario = False
+banderas = {'archivoinventario': False}
 
 #Inicializar variables globales
 archivo_local['extension']= None
@@ -102,9 +103,7 @@ def abrirarchivo(extensionvalida):
 
 
       #Almacenar Archivo
-      #print(listaDatos) 
-      #print(listaDatos[0]) 
-      #print(listaDatos[0][0]) 
+      
 
       try:
          archivo_local['extension']= str(extensionvalida)
@@ -166,42 +165,54 @@ def ordenarinventario():
    print(inventario)
    print('-------------------------------')
    
+   
+   
 
 
     
 
 #/////////////////////////////////////////////////
 def opcion1():
-  print('# Cargar inventario inicial:')
-  extensionarchivo = '.inv'
-  abrirarchivo(extensionarchivo)
+   #Validador
+   banderas['archivoinventario'] = False
 
-  #Evaluar
-  if archivo_local['validador'] == True and archivo_local['extension'] == extensionarchivo:
-     print('*******************************')
-     print('* Archivo leido correctamente *')
-     print('*******************************')
-     #print(archivo_local['data'])
+   print('# Cargar inventario inicial:')
+   extensionarchivo = '.inv'
+   abrirarchivo(extensionarchivo)
 
-     ordenarinventario()
+   #Evaluar
+   if archivo_local['validador'] == True and archivo_local['extension'] == extensionarchivo:
+      print('*******************************')
+      print('* Archivo leido correctamente *')
+      print('*******************************')
+      #print(archivo_local['data'])
 
-     print('********************************')
-     print('* Lista ordenada correctamente *')
-     print('********************************')
+      ordenarinventario()
 
-     #Validador
-     flagexistenciainventario = True 
-  else:
-     print('Inventario NO fueron leidos.')
+      print('********************************')
+      print('* Lista ordenada correctamente *')
+      print('********************************')
+
+      #Validador
+      banderas['archivoinventario'] = True
+     
+
+     
+   else:
+      print('Inventario NO fueron leidos.')
   
-  
+   
+   
+   
+   #Menu
+   menu()
 
 
 
 #/////////////////////////////////////////////////
 def opcion2():
    #Validar si hay inventario
-   if flagexistenciainventario == True:
+   if banderas['archivoinventario'] == True:
       print('# Cargar inventario inicial:')
       extensionarchivo = '.mov'
       abrirarchivo(extensionarchivo)
@@ -215,7 +226,12 @@ def opcion2():
       else:
          print('Inventario NO fueron leidos.')
    else:
-     print('Carge un inventario antes para continuar')
+     print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+     print('! Carge un inventario antes para continuar !')
+     print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+     print('\n presione una tecla para continuar')
+     input()
+     menu()
    
 
 #/////////////////////////////////////////////////
