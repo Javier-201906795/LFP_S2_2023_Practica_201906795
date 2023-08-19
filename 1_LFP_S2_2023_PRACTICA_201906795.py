@@ -116,17 +116,32 @@ def abrirarchivo(extensionvalida):
 def ordenarinventario():
    print('ordenando...')
    listaDatos = archivo_local['data']
-   #Obtener ubicaciones (Bodegas)
-   #primer dato
-   #print(listaDatos)
-   #print(listaDatos[0])
-   print(listaDatos[0][3])
+   
 
-   ubicacion = listaDatos[0][3]
-   if ubicacion in inventario:
-      print(str(ubicacion) +'ya se encuentra en el inventario')
-   else:
-      print('Agregar inventario')
+   #Agregar ubicaciones (Bodegas) a inventario
+   for i in range (0,len(listaDatos)):
+      ubicacion = listaDatos[i][3]
+      if ubicacion in inventario:
+         print(str(ubicacion) +' ya se encuentra en el inventario')
+      else:
+         print('agregando nueva ubicacion.')
+         inventario[str(ubicacion)] = None
+
+   #Agregar productos a inventario
+   for i in range (0,len(listaDatos)):
+      instruccionproducto = listaDatos[i][0]
+      instruccion, producto = instruccionproducto.split()
+      #Validar instruccion
+      if instruccion == 'crear_producto':
+         print('agregando produto.')
+      else:
+         print('no se agrego el producto porque la instruccion es diferente.\n'+'crear_producto != ' + str(instruccion))
+      
+      #print(instruccion)
+      #print(producto)
+
+   print('-------------------------------')
+   print(inventario)
 
 
     
