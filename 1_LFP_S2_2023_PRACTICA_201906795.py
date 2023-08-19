@@ -57,7 +57,7 @@ def abrirarchivo(extensionvalida):
    ruta = input("Ingrese la ruta del archivo: ")
 
    while True:
-      print('ruta', ruta)
+      #print('ruta', ruta)
       #Salir 
       if ruta == '4':
          break
@@ -90,16 +90,14 @@ def abrirarchivo(extensionvalida):
 
 
       #Almacenar Archivo
-      print(listaDatos) 
-      print(listaDatos[0]) 
-      print(listaDatos[0][0]) 
+      #print(listaDatos) 
+      #print(listaDatos[0]) 
+      #print(listaDatos[0][0]) 
 
       try:
          archivo_local['extension']= str(extensionvalida)
          archivo_local['validador']= True
          archivo_local['data']= listaDatos
-
-         print(archivo_local['validador'], archivo_local['data'])
       except:
          print("Error al almacenar variables")
 
@@ -123,7 +121,9 @@ def opcion1():
 
   #Evaluar
   if archivo_local['validador'] == True:
-     print('Inventario cargado correctamente')
+     print('************************************')
+     print('* Inventario cargado correctamente *')
+     print('************************************')
      print(archivo_local['extension'])
      print(archivo_local['data'])
   else:
