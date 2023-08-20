@@ -201,16 +201,28 @@ def ordenarmovimientos():
          if (ubicacion in inventario): 
             #Validar existencia producto
             if (producto in inventario[str(ubicacion)]):
-               print('si existe el producto ', producto,' en la ubicacion ', ubicacion)
+               
+               
+               
+               antiguacantidad = inventario[str(ubicacion)][str(producto)]['cantidad']
+               nuevacantidad = float(antiguacantidad) + float(cantidad)
+               inventario[str(ubicacion)][str(producto)]['cantidad'] = nuevacantidad
+               print(inventario[str(ubicacion)][str(producto)]['cantidad'])
+
+
+               print(i,') se agrego el producto ', producto,' en la ubicacion ', ubicacion)
             else:
-               print('NO existe el producto ', producto,' en la ubicacion ', ubicacion)
+               print('█████████████████████████████████████████████████████████████████')
+               print('█ NO existe el producto ', producto,' en la ubicacion ', ubicacion)
+               print('█████████████████████████████████████████████████████████████████')
+               #input()
             
          else:
             print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
             print('! ERROR no se encontro la ubicacion: ',ubicacion, ' | Linea: ', (i+1))
             print('¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡')
-            banderas['movimientos'] = False
-            break
+            #input()
+            
             
 
          
