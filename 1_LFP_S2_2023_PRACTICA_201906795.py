@@ -6,7 +6,7 @@ import os
 archivo_local = {'extension': None, 'validador': False, 'data': None}
 inventario = {}
 flagexistenciainventario = False
-banderas = {'archivoinventario': False}
+banderas = {'archivoinventario': False, 'movimientos': False}
 contadores = {'automatizacion': 0}
 
 #Inicializar variables globales
@@ -182,6 +182,7 @@ def ordenarinventario():
 def ordenarmovimientos():
    print('ordenar movimientos')
    listaDatos = archivo_local['data']
+   print('------------------------------------------------')
    print(listaDatos)
 
    for i in range (0,len(listaDatos)):
@@ -194,16 +195,22 @@ def ordenarmovimientos():
       #++++++++++++++++++++++++++++++++++++++++++++
       # [ AGREGAR STOCK ]
       if (movimiento == 'agregar_stock'):
-         print('agregar')
+         
          #Producto Existe 
          #Valida existencia ubicacion
          if (ubicacion in inventario): 
-            print('si existe la ubicacion')
             #Validar existencia producto
-            ##if
+            if (producto in inventario[str(ubicacion)]):
+               print('si existe el producto ', producto,' en la ubicacion ', ubicacion)
+            else:
+               print('NO existe el producto ', producto,' en la ubicacion ', ubicacion)
             
          else:
-            print('ERROR no se encontro la ubicacion')
+            print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+            print('! ERROR no se encontro la ubicacion: ',ubicacion, ' | Linea: ', (i+1))
+            print('¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡')
+            banderas['movimientos'] = False
+            break
             
 
          
@@ -277,6 +284,8 @@ def opcion2():
          #print(archivo_local['data'])
 
          ordenarmovimientos()
+
+         print(banderas['movimientos'])
 
       else:
          print('Inventario NO fueron leidos.')
