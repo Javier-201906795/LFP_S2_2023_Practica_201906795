@@ -7,6 +7,7 @@ archivo_local = {'extension': None, 'validador': False, 'data': None}
 inventario = {}
 flagexistenciainventario = False
 banderas = {'archivoinventario': False}
+contadores = {'automatizacion': 0}
 
 #Inicializar variables globales
 archivo_local['extension']= None
@@ -65,9 +66,17 @@ def abrirarchivo(extensionvalida):
    print('Nota 2: si desea salir presione el numero " 4 ".')
    print('-------------------------------------------------------------------')
    
-   ruta = input("Ingrese la ruta del archivo: ")
+   #ruta = input("Ingrese la ruta del archivo: ")
    #Automatizacion
    #ruta = 'test1.inv'
+   #Automatizacion-B
+   if (contadores['automatizacion'] < 1):
+      ruta = 'test1.inv'
+   else:
+      ruta = 'test1.mov'
+
+   contadores['automatizacion'] += 1
+
 
    while True:
       #print('ruta', ruta)
