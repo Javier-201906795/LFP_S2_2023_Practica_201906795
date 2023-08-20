@@ -206,8 +206,6 @@ def ordenarmovimientos():
                antiguacantidad = inventario[str(ubicacion)][str(producto)]['cantidad']
                nuevacantidad = float(antiguacantidad) + float(cantidad)
                inventario[str(ubicacion)][str(producto)]['cantidad'] = nuevacantidad
-               
-
 
                print(i,') se agrego el producto ', producto,' en la ubicacion ', ubicacion)
                print(antiguacantidad, ' + ', cantidad,' -> ',inventario[str(ubicacion)][str(producto)]['cantidad'])
@@ -228,19 +226,32 @@ def ordenarmovimientos():
 
          
       elif (movimiento == 'vender_producto'):
-         print('vender')
       #++++++++++++++++++++++++++++++++++++++++++++
       # [ VENDER PRODUCTO ]
          #Validar existencia ubicacion (Bodega)
-         #if
-
-         #Validar existencia producto
-         ##if
-
-         #Validar operacion valida
-         ###if
-            #Validar operacion no den numero negativo (sin existencias)
-
+         if (ubicacion in inventario): 
+            print('EXISTE UBICACION')
+            #Validar existencia producto
+            if (producto in inventario[str(ubicacion)]):
+               print('EXISTE Producto')
+               #Validar operacion valida
+               ##operacioes
+               cantidadproducto = inventario[str(ubicacion)][str(producto)]['cantidad']
+               venta = cantidad
+               print('venta ', venta)
+               #cantidaddespuesdevender 
+                  #Validar operacion no den numero negativo (sin existencias)
+            else:
+               print('█████████████████████████████████████████████████████████████████')
+               print('█ NO existe el producto ', producto,' en la ubicacion ', ubicacion)
+               print('█████████████████████████████████████████████████████████████████')
+               #input()
+        
+         else:
+            print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+            print('! ERROR no se encontro la ubicacion: ',ubicacion, ' | Linea: ', (i+1))
+            print('¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡')
+            #input()
     
 
 #/////////////////////////////////////////////////
