@@ -5,4 +5,4 @@ crear_producto uvas;100;2.50;BodegaA
 crear_producto Manzanas;30;3.00;BodegaA
 crear_productosdfa Manzanas;30;3.00;BodegaA
 crear_producto Moras;75;1.75;BodegaC
-crear_producto Uvas;75;1.75;BodegaC
+crear_producto Uvas;75;1.7516549783;BodegaC
