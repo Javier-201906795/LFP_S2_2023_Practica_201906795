@@ -182,6 +182,8 @@ def ordenarinventario():
 #/////////////////////////////////////////////////
 
 def ordenarmovimientos():
+   #Validador
+   banderas['movimientos'] = False
    print('ordenar movimientos')
    listaDatos = archivo_local['data']
    print('------------------------------------------------')
@@ -208,6 +210,8 @@ def ordenarmovimientos():
                nuevacantidad = float(antiguacantidad) + float(cantidad)
                inventario[str(ubicacion)][str(producto)]['cantidad'] = nuevacantidad
                print(' • Se agrego el producto ', producto,' en la ubicacion ', ubicacion, ' | ',antiguacantidad, ' + ', cantidad,' -> ',inventario[str(ubicacion)][str(producto)]['cantidad'], ' ## Linea: ', (i+1))
+               #Validador
+               banderas['movimientos'] = True
             else:
                mensaje = '██ NO existe el producto ', producto,' en la ubicacion ', ubicacion, ' ## Linea: ',(i+1)
                print(mensaje)
@@ -239,6 +243,8 @@ def ordenarmovimientos():
                if (nuevacantidad >= 0):
                   inventario[str(ubicacion)][str(producto)]['cantidad'] = nuevacantidad
                   print(' • Venta de ',cantidad,' ', producto, ' de ',ubicacion,'. | Existencias: ', cantidadproducto,' - ',venta,' -> ',nuevacantidad, ' ## Linea: ' ,str((i+1)) )
+                  #Validador
+                  banderas['movimientos'] = True
                else:
                   mensaje ='██ Error: NO hay suficientes '+str(producto)+' en ' +str(ubicacion)+' | Existencias:' +str(cantidadproducto) +' - '+ str(venta)+ ' -> '+str(nuevacantidad) + ' ## Linea: ' + str((i+1))
                   print(mensaje)
@@ -314,7 +320,7 @@ def opcion2():
 
          ordenarmovimientos()
 
-         print(banderas['movimientos'])
+         print('Validador movimientos ->',banderas['movimientos'])
 
       else:
          print('Inventario NO fueron leidos.')
