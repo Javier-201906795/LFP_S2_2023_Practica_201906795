@@ -7,6 +7,8 @@ archivo_local = {'extension': None, 'validador': False, 'data': None}
 inventario = {}
 flagexistenciainventario = False
 banderas = {'archivoinventario': False, 'movimientos': False}
+errores = {'archivo-inv':[], 'archivo-mov':[],'errores-inv':False, 'errores-mov':False}
+
 contadores = {'automatizacion': 0}
 
 #Inicializar variables globales
@@ -184,43 +186,41 @@ def ordenarmovimientos():
    listaDatos = archivo_local['data']
    print('------------------------------------------------')
    print(listaDatos)
+   print('------------------------------------------------')
 
    for i in range (0,len(listaDatos)):
       movimiento, producto = listaDatos[i][0].split()
       cantidad = listaDatos[i][1]
       ubicacion = listaDatos[i][2]
 
-      print(movimiento, producto,cantidad, ubicacion)
+      #print(movimiento, producto,cantidad, ubicacion)
 
       #++++++++++++++++++++++++++++++++++++++++++++
       # [ AGREGAR STOCK ]
       if (movimiento == 'agregar_stock'):
-         
          #Producto Existe 
          #Valida existencia ubicacion
          if (ubicacion in inventario): 
             #Validar existencia producto
             if (producto in inventario[str(ubicacion)]):
-               
                #Actualizar inventario
                antiguacantidad = inventario[str(ubicacion)][str(producto)]['cantidad']
                nuevacantidad = float(antiguacantidad) + float(cantidad)
                inventario[str(ubicacion)][str(producto)]['cantidad'] = nuevacantidad
-
-               print(i,') se agrego el producto ', producto,' en la ubicacion ', ubicacion)
-               print(antiguacantidad, ' + ', cantidad,' -> ',inventario[str(ubicacion)][str(producto)]['cantidad'])
+               print(' • Se agrego el producto ', producto,' en la ubicacion ', ubicacion, ' | ',antiguacantidad, ' + ', cantidad,' -> ',inventario[str(ubicacion)][str(producto)]['cantidad'], ' ## Linea: ', (i+1))
 
             else:
-               print('█████████████████████████████████████████████████████████████████')
-               print('█ NO existe el producto ', producto,' en la ubicacion ', ubicacion)
-               print('█████████████████████████████████████████████████████████████████')
-               #input()
+               #print('██ NO existe el producto ', producto,' en la ubicacion ', ubicacion, ' ## Linea: ',(i+1))
+               mensaje = '██ NO existe el producto ', producto,' en la ubicacion ', ubicacion, ' ## Linea: ',(i+1)
+               print(mensaje)
+               if (errores['errores-mov'] == True):
+                  input()
             
          else:
-            print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-            print('! ERROR no se encontro la ubicacion: ',ubicacion, ' | Linea: ', (i+1))
-            print('¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡')
-            #input()
+            mensaje = '██ ERROR no se encontro la ubicacion: '+ str(ubicacion) + ' ## Linea: ' + str((i+1))
+            print(mensaje)
+            if (errores['errores-mov'] == True):
+               input()
             
             
 
@@ -239,22 +239,25 @@ def ordenarmovimientos():
                nuevacantidad = float(cantidadproducto) - venta
                #Validar operacion no den numero negativo (sin existencias)
                if (nuevacantidad >= 0):
-                  print('• Venta de ',cantidad,' ', producto, ' de ',ubicacion,'. | Existencias: ', cantidadproducto, ' -> ',nuevacantidad )
+                  print(' • Venta de ',cantidad,' ', producto, ' de ',ubicacion,'. | Existencias: ', cantidadproducto,' - ',venta,' -> ',nuevacantidad, ' ## Linea: ' ,str((i+1)) )
                else:
-                  mensaje ='█ Error: NO hay suficientes '+str(producto)+' en ' +str(ubicacion)+' | Existencias:' +str(cantidadproducto) +' - '+ str(venta)+ ' -> '+str(nuevacantidad)
+                  mensaje ='██ Error: NO hay suficientes '+str(producto)+' en ' +str(ubicacion)+' | Existencias:' +str(cantidadproducto) +' - '+ str(venta)+ ' -> '+str(nuevacantidad) + ' ## Linea: ' + str((i+1))
                   print(mensaje)
+                  if (errores['errores-mov'] == True):
+                     input()
+                  
                
             else:
-               print('█████████████████████████████████████████████████████████████████')
-               print('█ NO existe el producto ', producto,' en la ubicacion ', ubicacion)
-               print('█████████████████████████████████████████████████████████████████')
-               #input()
+               mensaje = '██ Error: NO existe el producto ' +  str(producto) + ' en la ubicacion ' + str(ubicacion)  + ' ## Linea: ' + str((i+1))
+               print(mensaje)
+               if (errores['errores-mov'] == True):
+                  input()
         
          else:
-            print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-            print('! ERROR no se encontro la ubicacion: ',ubicacion, ' | Linea: ', (i+1))
-            print('¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡')
-            #input()
+            mensaje = '██ Error: NO se encontro la ubicacion: '+ str(ubicacion) + ' ## Linea: ' +str(i+1)
+            print(mensaje)
+            if (errores['errores-mov'] == True):
+                  input()
     
 
 #/////////////////////////////////////////////////
