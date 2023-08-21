@@ -338,7 +338,8 @@ def opcion2():
 
 #/////////////////////////////////////////////////
 def opcion3():
-   print('opcion3')
+   print('# Crer Informe de invantario.')
+   
 
 #/////////////////////////////////////////////////
 def opcion4():
