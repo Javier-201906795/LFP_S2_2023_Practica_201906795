@@ -31,7 +31,7 @@ def mensajebienvenida():
 def menu():
    opcionvalida = 0
 
-   print('bandera', banderas['archivoinventario'])
+   
    mensaje =  '\n\n# Sistema de inventario:\n'
    if (banderas['archivoinventario'] == True):
       mensaje += '## [ Inventario cargado ]\n'
