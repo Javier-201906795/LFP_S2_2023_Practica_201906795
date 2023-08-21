@@ -31,12 +31,14 @@ def mensajebienvenida():
 def menu():
    opcionvalida = 0
 
+   
    mensaje =  '# Sistema de inventario:\n\n'
    mensaje += '1) Cargar inventario inicial\n'
    mensaje += '2) Cargar instrucciones movimientos\n'
    mensaje += '3) Crear informe de inventario\n'
    mensaje += '4) Salir\n'
    mensaje += '\n'
+   print('================================================================')
    print(mensaje)
    #Ingresar opcion
    opcion = input()
@@ -47,7 +49,7 @@ def menu():
    except:
       print("Ingrese un opcion numerica, porfavor vuelva a intentar.")
      
-
+   print('================================================================')
     #SWITCH
    if opcion == 1:
       opcion1()
@@ -322,8 +324,9 @@ def opcion2():
 
          print('Validador movimientos ->',banderas['movimientos'])
 
+         menu()
       else:
-         print('Inventario NO fueron leidos.')
+         print('Error: Inventario NO fueron leidos.')
    else:
      print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
      print('! Carge un inventario antes para continuar !')
