@@ -270,9 +270,9 @@ def ordenarmovimientos():
 def crearinformeinventariomensaje():
    mensajeinventario =  'Informe de Inventario: \n'
    mensajeinventario += '\n'
-   mensajeinventario += ' _______________________________________________________________________\n'
-   mensajeinventario += '|Producto     |Cantidad    |Precio und.   |Valor Total   |Ubicacion     | \n'
-   mensajeinventario += ' -----------------------------------------------------------------------\n'
+   mensajeinventario += ' ___________________________________________________________________\n'
+   mensajeinventario += '|   Producto  | Cantidad | Precio und. | Valor Total |   Ubicacion  | \n'
+   mensajeinventario += ' -------------------------------------------------------------------\n'
 
    #Inventario
    #Obtener lista de ubicaciones
@@ -291,25 +291,27 @@ def crearinformeinventariomensaje():
          #Imprimir valores 
          #Configuraciones Imprimir valores
          espaciosproducto = 13
-         espacioscantidad = 12
-         espaciospreciound = 14
-         espaciosvalortotal = 14
-         espaciosubicacion = 14
-
+         espacioscantidad = 10
+         espaciospreciound = 13
+         espaciosvalortotal = 13
+         espaciosubicacion = 13
+         #Formato de valores
+         cantidad = f"{cantidad:.{1}f}"
+         precio = f"{precio:.{2}f}"
+         valortotal = f"{valortotal:.{2}f}"
+         #Estructura con espacios para su tabulacion
          txtproducto = str(producto)[0:(espaciosproducto-1)].ljust(espaciosproducto," ")
-         txtcantidad = str(cantidad)[0:(espaciosproducto-1)].ljust(espacioscantidad," ")
-         txtpreciound = str(precio)[0:(espaciospreciound-1)].ljust(espaciospreciound," ")
-         txtvalortotal = str(valortotal)[0:(espaciosvalortotal-1)].ljust(espaciosvalortotal," ")
-         txtubicacion = str(ubicacion)[0:(espaciosubicacion-1)].ljust(espaciosubicacion," ")
-
-
-
-         mensajeinventario += '|'+txtproducto+'|'+txtcantidad+'|'+txtpreciound+'|'+txtvalortotal+'|'+txtubicacion+'|\n'
+         txtcantidad = str(cantidad)[0:(espaciosproducto-1)].rjust(espacioscantidad," ")
+         txtpreciound = str(precio)[0:(espaciospreciound-1)].rjust((espaciospreciound-2),"¸")
+         txtvalortotal = str(valortotal)[0:(espaciosvalortotal-1)].rjust((espaciosvalortotal-2),"¸")
+         txtubicacion = str(ubicacion)[0:(espaciosubicacion-1)].center(espaciosubicacion+1)
+         #Agregar nueva linea
+         mensajeinventario += '|'+txtproducto+'|'+txtcantidad+'| Q'+txtpreciound+'| Q'+txtvalortotal+'|'+txtubicacion+'|\n'
            
          
          
    
-   mensajeinventario += ' -----------------------------------------------------------------------\n'  
+   mensajeinventario += ' -------------------------------------------------------------------\n'
 
    
    
