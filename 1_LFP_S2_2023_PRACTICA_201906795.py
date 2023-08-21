@@ -7,7 +7,7 @@ archivo_local = {'extension': None, 'validador': False, 'data': None}
 inventario = {}
 flagexistenciainventario = False
 banderas = {'archivoinventario': False, 'movimientos': False}
-errores = {'archivo-inv':[], 'archivo-mov':[],'errores-inv':False, 'errores-mov':False}
+errores = {'archivo-inv':[], 'archivo-mov':[],'errores-inv':False, 'errores-mov':False, 'errores-invtxt': True}
 
 contadores = {'automatizacion': 0}
 
@@ -321,8 +321,19 @@ def crearinformeinventariomensaje():
 
 #/////////////////////////////////////////////////
 def creararchivoinventario(texto):
-   print('Creando archivo inventario_201906795.txt')
-   print(texto)
+   #Validador
+   errores['errores-invtxt']=True
+   print('• Creando archivo inventario_201906795.txt')
+   try:
+      #crear archivo  
+      archivo = open("inventario_201906795.txt", "a")
+      archivo.write(texto)
+      archivo.close()
+      print('• Escritura del contenido correctamente')
+      #Validador
+      errores['errores-invtxt']=False
+   except:
+      print('Error al crear archivo inventario_201906795.txt')
 
 #/////////////////////////////////////////////////
 def opcion1():
@@ -408,6 +419,12 @@ def opcion3():
       print('**********************************************************************************')
       
       creararchivoinventario(textoinventario)
+
+      #Validador
+      if (errores['errores-invtxt'] == False):
+         print('*********************************************************')
+         print('* Archivo inventario_201906795.txt creado correctamente *')
+         print('*********************************************************')
 
       
    elif banderas['archivoinventario'] == False:
