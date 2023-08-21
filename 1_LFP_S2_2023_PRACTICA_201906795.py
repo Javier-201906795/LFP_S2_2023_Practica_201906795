@@ -149,9 +149,10 @@ def ordenarinventario():
 
       #Evaluar ubicacion
       if ubicacion in inventario:
-         print(str(ubicacion) +' ya se encuentra en el inventario')
+         #print(str(ubicacion) +' ya se encuentra en el inventario')
+         pass
       else:
-         print('agregando nueva ubicacion ', ubicacion)
+         #print(' • Agregando nueva ubicacion ', ubicacion)
          inventario[str(ubicacion)] = {}
 
    #++++++++++++++++++++++++++++++++++++++++++++
@@ -168,16 +169,17 @@ def ordenarinventario():
       if instruccion == 'crear_producto':
          #Validar si existe el producto
          if (producto in inventario[str(tempubicacion)]):
-            print('producto: ', producto, 'NO se agrego a ', tempubicacion, ' porque ya existe el producto')
+            print('██ Error producto: ', producto, 'NO se agrego a ', tempubicacion, ' porque ya existe el producto', ' ##Linea: ',(i+1))
          else:
-            print('agregando produto ', producto, ' a ', tempubicacion)
+            print(' • Agregando produto ', producto, ' a ', tempubicacion)
             inventario[str(tempubicacion)][str(producto)] = {'cantidad':float(cantidad),'precio':float(precio)}
             
       else:
-         print('no se agrego el producto porque la instruccion es diferente.\n'+ str(instruccion) +' != crear_producto')
+         print('██ Error no se agrego el producto porque la instruccion es diferente.\n'+ str(instruccion) +' != crear_producto '+ ' ##Linea '+str(i+1) )
       
       #++++++++++++++++++++++++++++++++++++++++++++
    print('-------------------------------')
+   print('   [ INVENTARIO ]')
    print(inventario)
    print('-------------------------------')
    
@@ -440,7 +442,7 @@ def opcion3():
 
 #/////////////////////////////////////////////////
 def opcion4():
-   print('opcion4')
+   print('Salir.')
 #/////////////////////////////////////////////////
 
 
