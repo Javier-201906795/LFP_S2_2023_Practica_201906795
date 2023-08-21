@@ -350,7 +350,7 @@ def creararchivoinventario(texto):
    print('• Creando archivo inventario_201906795.txt')
    try:
       #crear archivo  
-      archivo = open("inventario_201906795.txt", "a")
+      archivo = open("inventario_201906795.txt", "w")
       archivo.write(texto)
       archivo.close()
       print('• Escritura del contenido correctamente')
