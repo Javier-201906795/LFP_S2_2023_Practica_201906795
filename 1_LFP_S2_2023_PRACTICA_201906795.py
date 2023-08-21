@@ -230,17 +230,20 @@ def ordenarmovimientos():
       # [ VENDER PRODUCTO ]
          #Validar existencia ubicacion (Bodega)
          if (ubicacion in inventario): 
-            print('EXISTE UBICACION')
             #Validar existencia producto
             if (producto in inventario[str(ubicacion)]):
-               print('EXISTE Producto')
                #Validar operacion valida
                ##operacioes
                cantidadproducto = inventario[str(ubicacion)][str(producto)]['cantidad']
-               venta = cantidad
-               print('venta ', venta)
-               #cantidaddespuesdevender 
-                  #Validar operacion no den numero negativo (sin existencias)
+               venta = float(cantidad)
+               nuevacantidad = float(cantidadproducto) - venta
+               #Validar operacion no den numero negativo (sin existencias)
+               if (nuevacantidad >= 0):
+                  print('• Venta de ',cantidad,' ', producto, ' de ',ubicacion,'. | Existencias: ', cantidadproducto, ' -> ',nuevacantidad )
+               else:
+                  mensaje ='█ Error: NO hay suficientes '+str(producto)+' en ' +str(ubicacion)+' | Existencias:' +str(cantidadproducto) +' - '+ str(venta)+ ' -> '+str(nuevacantidad)
+                  print(mensaje)
+               
             else:
                print('█████████████████████████████████████████████████████████████████')
                print('█ NO existe el producto ', producto,' en la ubicacion ', ubicacion)
