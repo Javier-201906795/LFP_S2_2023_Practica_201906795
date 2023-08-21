@@ -320,6 +320,11 @@ def crearinformeinventariomensaje():
    return mensajeinventario
 
 #/////////////////////////////////////////////////
+def creararchivoinventario(texto):
+   print('Creando archivo inventario_201906795.txt')
+   print(texto)
+
+#/////////////////////////////////////////////////
 def opcion1():
    #Validador
    banderas['archivoinventario'] = False
@@ -397,9 +402,14 @@ def opcion3():
       print()
       print('**********************************************************************************')
 
-      print(crearinformeinventariomensaje())
-      
+      textoinventario = crearinformeinventariomensaje()
+      print(textoinventario)
+
       print('**********************************************************************************')
+      
+      creararchivoinventario(textoinventario)
+
+      
    elif banderas['archivoinventario'] == False:
       print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
       print('! Carge un inventario antes para continuar !')
