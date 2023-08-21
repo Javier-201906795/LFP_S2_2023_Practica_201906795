@@ -5,4 +5,8 @@ vender_producto Manzanas;10;BodegaA
 vender_producto Manzanas;200;BodegaA
 vender_producto Arandanos;200;BodegaB
 vender_producto Arandanos;200;BodegaZ
+vender_producto Manzanas;50;BodegaA
+vender_producto uvas;125;BodegaA
+vender_producto uvas;25;BodegaA
+vender_producto uvas;25;BodegaA
 

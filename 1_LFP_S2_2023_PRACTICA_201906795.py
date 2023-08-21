@@ -208,9 +208,7 @@ def ordenarmovimientos():
                nuevacantidad = float(antiguacantidad) + float(cantidad)
                inventario[str(ubicacion)][str(producto)]['cantidad'] = nuevacantidad
                print(' • Se agrego el producto ', producto,' en la ubicacion ', ubicacion, ' | ',antiguacantidad, ' + ', cantidad,' -> ',inventario[str(ubicacion)][str(producto)]['cantidad'], ' ## Linea: ', (i+1))
-
             else:
-               #print('██ NO existe el producto ', producto,' en la ubicacion ', ubicacion, ' ## Linea: ',(i+1))
                mensaje = '██ NO existe el producto ', producto,' en la ubicacion ', ubicacion, ' ## Linea: ',(i+1)
                print(mensaje)
                if (errores['errores-mov'] == True):
@@ -239,6 +237,7 @@ def ordenarmovimientos():
                nuevacantidad = float(cantidadproducto) - venta
                #Validar operacion no den numero negativo (sin existencias)
                if (nuevacantidad >= 0):
+                  inventario[str(ubicacion)][str(producto)]['cantidad'] = nuevacantidad
                   print(' • Venta de ',cantidad,' ', producto, ' de ',ubicacion,'. | Existencias: ', cantidadproducto,' - ',venta,' -> ',nuevacantidad, ' ## Linea: ' ,str((i+1)) )
                else:
                   mensaje ='██ Error: NO hay suficientes '+str(producto)+' en ' +str(ubicacion)+' | Existencias:' +str(cantidadproducto) +' - '+ str(venta)+ ' -> '+str(nuevacantidad) + ' ## Linea: ' + str((i+1))
