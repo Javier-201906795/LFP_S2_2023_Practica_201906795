@@ -7,7 +7,7 @@ archivo_local = {'extension': None, 'validador': False, 'data': None}
 inventario = {}
 flagexistenciainventario = False
 banderas = {'archivoinventario': False, 'movimientos': False}
-errores = {'archivo-inv':[], 'archivo-mov':[],'errores-inv':False, 'errores-mov':False, 'errores-invtxt': True}
+errores = {'archivo-inv':[], 'archivo-mov':[],'errores-inv':False, 'errores-mov':False, 'errores-invtxt': True, 'general': False}
 
 contadores = {'automatizacion': 0}
 
@@ -27,6 +27,18 @@ def mensajebienvenida():
     mensaje += '---------------------------------------------------------\n'
     return mensaje
 
+def mensajeadvertenciaerrores():
+   mensaje = '\n'
+   mensaje += '**************** [ IMPORTANTE ] *******************\n'
+   mensaje += 'Si desea identificar y corregir los errores en\n'
+   mensaje += 'el programa, es esencial activar esta opción, \n'
+   mensaje += 'ya que de lo contrario, los errores serán ignorados \n'
+   mensaje += 'y el programa simplemente imprimirá los mensajes \n'
+   mensaje += 'de error sin procesarlos. pordefecto no se tomaran\n'
+   mensaje += 'en cuenta\n'
+   mensaje += '***************************************************\n'
+   mensaje += 'S/N\n'
+   return mensaje
 
 def menu():
    opcionvalida = 0
@@ -176,12 +188,16 @@ def ordenarinventario():
          #Validar si existe el producto
          if (producto in inventario[str(tempubicacion)]):
             print('██ Error producto: ', producto, 'NO se agrego a ', tempubicacion, ' porque ya existe el producto', ' ##Linea: ',(i+1))
+            if (errores['general'] == True):
+	            input()
          else:
             print(' • Agregando produto ', producto, ' a ', tempubicacion)
             inventario[str(tempubicacion)][str(producto)] = {'cantidad':float(cantidad),'precio':float(precio)}
             
       else:
          print('██ Error no se agrego el producto porque la instruccion es diferente.\n'+ str(instruccion) +' != crear_producto '+ ' ##Linea '+str(i+1) )
+         if (errores['general'] == True):
+	         input()
       
       #++++++++++++++++++++++++++++++++++++++++++++
    print('-------------------------------')
@@ -439,12 +455,16 @@ def opcion3():
       print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
       print('! Carge un inventario antes para continuar !')
       print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+      if (errores['general'] == True):
+         input()
    elif banderas['movimientos'] == False:
       print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
       print('! Carge un listado de movimientos antes para continuar !')
       print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+      if (errores['general'] == True):
+         input()
 
-   #menu()
+   menu()
 
 #/////////////////////////////////////////////////
 def opcion4():
@@ -456,6 +476,13 @@ def opcion4():
 ################################################################
 
 print(mensajebienvenida()) 
+
+#Adevertencia Errores
+print(mensajeadvertenciaerrores())
+opcionerrores = input()
+if opcionerrores == 's' or opcionerrores == 'S' or opcionerrores == ' s' or opcionerrores ==' S':
+   errores['general'] = True
+   print('• Detector de errores activado')
 
 menu()
 
