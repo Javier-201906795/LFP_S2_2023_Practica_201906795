@@ -289,7 +289,17 @@ def crearinformeinventariomensaje():
          cantidad = inventario[str(ubicacion)][str(producto)]['cantidad']
          valortotal = float(precio) + float(cantidad)
          #Imprimir valores 
-         mensajeinventario += str(producto) + ' | '+ str(cantidad) + ' | ' + str(precio) + ' | '+ str(valortotal) + ' | ' + str(ubicacion) + '\n'
+         #mensajeinventario += str(producto) + ' | '+ str(cantidad) + ' | ' + str(precio) + ' | '+ str(valortotal) + ' | ' + str(ubicacion) + '\n'
+         #Configuraciones Imprimir valores
+         #mensajeinventario += 'Producto      Cantidad    Precio und.    Valor Total    Ubicacion \n'
+         espaciosproducto = 14
+         espacioscantidad = 13
+         espaciospreciound = 15
+         espaciosvalortotal = 15
+         espaciosubicacion = 15
+
+         txtproducto = str(producto)[0:(espaciosproducto-1)].rjust(5," ")+'|'
+         print(txtproducto)
          
       
 
