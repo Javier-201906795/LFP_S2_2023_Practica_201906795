@@ -265,7 +265,23 @@ def ordenarmovimientos():
             print(mensaje)
             if (errores['errores-mov'] == True):
                   input()
-    
+
+#/////////////////////////////////////////////////
+def crearinformeinventariomensaje():
+   mensajeinventario =  'Informe de Inventario: \n'
+   mensajeinventario += '\n'
+   mensajeinventario += 'Producto      Cantidad    Precio und.    Valor Total    Ubicacion'
+
+   #Inventario
+   #Obtener lista de ubicaciones
+
+   #Obtener lista de productos
+
+   #Imprimir valores 
+
+
+
+   return mensajeinventario
 
 #/////////////////////////////////////////////////
 def opcion1():
@@ -339,7 +355,25 @@ def opcion2():
 #/////////////////////////////////////////////////
 def opcion3():
    print('# Crer Informe de invantario.')
-   
+
+   if banderas['archivoinventario'] == True and banderas['movimientos'] == True:
+
+      print()
+      print('**********************************************************************************')
+
+      print(crearinformeinventariomensaje())
+      
+      print('**********************************************************************************')
+   elif banderas['archivoinventario'] == False:
+      print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+      print('! Carge un inventario antes para continuar !')
+      print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+   elif banderas['movimientos'] == False:
+      print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+      print('! Carge un listado de movimientos antes para continuar !')
+      print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+
+   menu()
 
 #/////////////////////////////////////////////////
 def opcion4():
