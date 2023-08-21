@@ -7,4 +7,6 @@ Informe de Inventario:
 |uvas         |       0.0| Q¸¸¸¸¸¸¸2.50| Q¸¸¸¸¸¸¸2.50|   BodegaA    |
 |Peras        |      50.0| Q¸¸¸¸¸¸¸3.00| Q¸¸¸¸¸¸53.00|   BodegaB    |
 |Platanos     |      75.0| Q¸¸¸¸¸¸¸1.75| Q¸¸¸¸¸¸76.75|   BodegaC    |
+|Moras        |      75.0| Q¸¸¸¸¸¸¸1.75| Q¸¸¸¸¸¸76.75|   BodegaC    |
+|Uvas         |      75.0| Q¸¸¸¸¸¸¸1.75| Q¸¸¸¸¸¸76.75|   BodegaC    |
  -------------------------------------------------------------------
