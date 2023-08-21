@@ -270,7 +270,7 @@ def ordenarmovimientos():
 def crearinformeinventariomensaje():
    mensajeinventario =  'Informe de Inventario: \n'
    mensajeinventario += '\n'
-   mensajeinventario += 'Producto      Cantidad    Precio und.    Valor Total    Ubicacion'
+   mensajeinventario += 'Producto      Cantidad    Precio und.    Valor Total    Ubicacion \n'
 
    #Inventario
    #Obtener lista de ubicaciones
@@ -287,12 +287,13 @@ def crearinformeinventariomensaje():
          #Obtiene precio
          precio = inventario[str(ubicacion)][str(producto)]['precio']
          cantidad = inventario[str(ubicacion)][str(producto)]['cantidad']
-         print('precio:', precio)
-         print('cantidad:', cantidad)
+         valortotal = float(precio) + float(cantidad)
+         #Imprimir valores 
+         mensajeinventario += str(producto) + ' | '+ str(cantidad) + ' | ' + str(precio) + ' | '+ str(valortotal) + ' | ' + str(ubicacion) + '\n'
          
       
 
-   #Imprimir valores 
+   
    
 
 
