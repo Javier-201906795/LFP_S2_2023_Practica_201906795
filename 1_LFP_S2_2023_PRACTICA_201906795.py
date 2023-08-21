@@ -188,16 +188,16 @@ def ordenarinventario():
          #Validar si existe el producto
          if (producto in inventario[str(tempubicacion)]):
             print('██ Error producto: ', producto, 'NO se agrego a ', tempubicacion, ' porque ya existe el producto', ' ##Linea: ',(i+1))
-            if (errores['general'] == True):
-	            input()
+            if(errores['general'] == True):
+               input()
          else:
             print(' • Agregando produto ', producto, ' a ', tempubicacion)
             inventario[str(tempubicacion)][str(producto)] = {'cantidad':float(cantidad),'precio':float(precio)}
-            
       else:
-         print('██ Error no se agrego el producto porque la instruccion es diferente.\n'+ str(instruccion) +' != crear_producto '+ ' ##Linea '+str(i+1) )
-         if (errores['general'] == True):
-	         input()
+         print('██ Error no se agrego el producto porque la instruccion es diferente. | '+ str(instruccion) +' != crear_producto '+ ' ##Linea '+str(i+1) )
+         if(errores['general'] == True):
+            input()
+         
       
       #++++++++++++++++++++++++++++++++++++++++++++
    print('-------------------------------')
@@ -241,13 +241,13 @@ def ordenarmovimientos():
             else:
                mensaje = '██ NO existe el producto ', producto,' en la ubicacion ', ubicacion, ' ## Linea: ',(i+1)
                print(mensaje)
-               if (errores['errores-mov'] == True):
+               if (errores['general'] == True):
                   input()
             
          else:
             mensaje = '██ ERROR no se encontro la ubicacion: '+ str(ubicacion) + ' ## Linea: ' + str((i+1))
             print(mensaje)
-            if (errores['errores-mov'] == True):
+            if (errores['general'] == True):
                input()
             
             
@@ -274,20 +274,20 @@ def ordenarmovimientos():
                else:
                   mensaje ='██ Error: NO hay suficientes '+str(producto)+' en ' +str(ubicacion)+' | Existencias:' +str(cantidadproducto) +' - '+ str(venta)+ ' -> '+str(nuevacantidad) + ' ## Linea: ' + str((i+1))
                   print(mensaje)
-                  if (errores['errores-mov'] == True):
+                  if (errores['general'] == True):
                      input()
                   
                
             else:
                mensaje = '██ Error: NO existe el producto ' +  str(producto) + ' en la ubicacion ' + str(ubicacion)  + ' ## Linea: ' + str((i+1))
                print(mensaje)
-               if (errores['errores-mov'] == True):
+               if (errores['general'] == True):
                   input()
         
          else:
             mensaje = '██ Error: NO se encontro la ubicacion: '+ str(ubicacion) + ' ## Linea: ' +str(i+1)
             print(mensaje)
-            if (errores['errores-mov'] == True):
+            if (errores['general'] == True):
                   input()
 
 #/////////////////////////////////////////////////
@@ -358,6 +358,8 @@ def creararchivoinventario(texto):
       errores['errores-invtxt']=False
    except:
       print('Error al crear archivo inventario_201906795.txt')
+      if(errores['general'] == True):
+         input()
 
 #/////////////////////////////////////////////////
 def opcion1():
@@ -387,7 +389,8 @@ def opcion1():
 
      
    else:
-      print('Inventario NO fueron leidos.')
+      print('Error Inventario NO fueron leidos.')
+      input()
   
    
    
@@ -419,6 +422,7 @@ def opcion2():
          menu()
       else:
          print('Error: Inventario NO fueron leidos.')
+         input()
    else:
      print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
      print('! Carge un inventario antes para continuar !')
