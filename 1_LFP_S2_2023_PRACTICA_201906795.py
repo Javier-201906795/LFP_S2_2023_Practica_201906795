@@ -274,11 +274,26 @@ def crearinformeinventariomensaje():
 
    #Inventario
    #Obtener lista de ubicaciones
-
+   listaubicaciones = list(inventario)
    #Obtener lista de productos
+   listaproductos = []
+   #Recorre ubicaicones
+   for i in range (0,len(listaubicaciones)):
+      ubicacion = listaubicaciones[i]
+      print('u: ', ubicacion, '+---------')
+      #Recorre productos
+      for producto in inventario[str(ubicacion)]:
+         print(producto)
+         #Obtiene precio
+         precio = inventario[str(ubicacion)][str(producto)]['precio']
+         cantidad = inventario[str(ubicacion)][str(producto)]['cantidad']
+         print('precio:', precio)
+         print('cantidad:', cantidad)
+         
+      
 
    #Imprimir valores 
-
+   
 
 
    return mensajeinventario
@@ -373,7 +388,7 @@ def opcion3():
       print('! Carge un listado de movimientos antes para continuar !')
       print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
 
-   menu()
+   #menu()
 
 #/////////////////////////////////////////////////
 def opcion4():
