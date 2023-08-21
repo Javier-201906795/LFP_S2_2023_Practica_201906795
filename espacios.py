@@ -6,4 +6,5 @@ lista = ['manzana', 'pera', 'Uvas', 'caja de comflakes edicion especial de colle
 
 print(mensajeinventario)
 for producto in lista:
-    print(producto)
+    mensaje = producto.ljust(15," ") + '|'
+    print(mensaje)
