@@ -38,7 +38,7 @@ def mensajeadvertenciaerrores():
 #/////////////////////////////////////////////////
 def menu():
    mensaje =  '\n\n# Sistema de inventario:\n'
-   
+
    if (banderas['archivoinventario'] == True):
       mensaje += '## [ Inventario cargado ]\n'
    if (banderas['movimientos'] == True):
@@ -81,17 +81,7 @@ def abrirarchivo(extensionvalida):
    print('Nota 2: si desea salir presione el numero " 4 ".')
    print('-------------------------------------------------------------------')
    
-   #ruta = input("Ingrese la ruta del archivo: ")
-   #Automatizacion
-   #ruta = 'test1.inv'
-   #Automatizacion-B
-   if (contadores['automatizacion'] < 1):
-      ruta = 'test1.inv'
-   else:
-      ruta = 'test1.mov'
-
-   contadores['automatizacion'] += 1
-
+   ruta = input("Ingrese la ruta del archivo: ")
 
    while True:
       #print('ruta', ruta)
