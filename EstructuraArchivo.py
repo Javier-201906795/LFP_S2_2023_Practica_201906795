@@ -398,8 +398,6 @@ def opcion1():
    #Menu
    menu()
 
-
-
 #/////////////////////////////////////////////////
 def opcion2():
    #Validar si hay inventario
@@ -430,7 +428,6 @@ def opcion2():
      print('\n presione una tecla para continuar')
      input()
      menu()
-   
 
 #/////////////////////////////////////////////////
 def opcion3():
@@ -478,7 +475,6 @@ def opcion4():
 
 
 ################################################################
-
 print(mensajebienvenida()) 
 
 #Adevertencia Errores
@@ -489,7 +485,4 @@ if opcionerrores == 's' or opcionerrores == 'S' or opcionerrores == ' s' or opci
    print('• Detector de errores activado')
 
 menu()
-
-
-
 ################################################################
