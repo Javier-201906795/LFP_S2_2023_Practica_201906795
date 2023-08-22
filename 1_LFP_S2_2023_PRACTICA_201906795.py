@@ -110,24 +110,18 @@ def abrirarchivo(extensionvalida):
                if array[i] == '' or array[i] == ' ':
                   None
                else:
-                  #New array por ; punto y coma
+                  #Array por ; punto y coma
                   newarray = array[i].split(';')
                   listaDatos.append(newarray)
 
 
-
       #Almacenar Archivo
-      
-
       try:
          archivo_local['extension']= str(extensionvalida)
          archivo_local['validador']= True
          archivo_local['data']= listaDatos
       except:
          print("Error al almacenar variables")
-
-
-
 
 
    except:
@@ -137,12 +131,9 @@ def abrirarchivo(extensionvalida):
       menu()
     
 #/////////////////////////////////////////////////
-
 def ordenarinventario():
    print('ordenando...')
    listaDatos = archivo_local['data']
-   
-
    #++++++++++++++++++++++++++++++++++++++++++++
    #Agregar ubicaciones a inventario
    for i in range (0,len(listaDatos)):
@@ -189,7 +180,6 @@ def ordenarinventario():
    print('-------------------------------')
    
 #/////////////////////////////////////////////////
-
 def ordenarmovimientos():
    #Validador
    banderas['movimientos'] = False
@@ -232,7 +222,6 @@ def ordenarmovimientos():
             print(mensaje)
             if (errores['general'] == True):
                input()
-            
             
 
          
@@ -315,15 +304,8 @@ def crearinformeinventariomensaje():
          #Agregar nueva linea
          mensajeinventario += '|'+txtproducto+'|'+txtcantidad+'| Q'+txtpreciound+'| Q'+txtvalortotal+'|'+txtubicacion+'|\n'
            
-         
-         
    
    mensajeinventario += ' -------------------------------------------------------------------\n'
-
-   
-   
-
-
    return mensajeinventario
 
 #/////////////////////////////////////////////////
@@ -348,7 +330,8 @@ def creararchivoinventario(texto):
 def opcion1():
    #Validador
    banderas['archivoinventario'] = False
-
+   
+   #Leer archivo
    print('# Cargar inventario inicial:')
    extensionarchivo = '.inv'
    abrirarchivo(extensionarchivo)
@@ -464,12 +447,15 @@ def opcion4():
 
 print(mensajebienvenida()) 
 
+#------------------------------------------------------------------
 #Adevertencia Errores
+
 print(mensajeadvertenciaerrores())
 opcionerrores = input()
 if opcionerrores == 's' or opcionerrores == 'S' or opcionerrores == ' s' or opcionerrores ==' S':
    errores['general'] = True
    print('• Detector de errores activado')
+#------------------------------------------------------------------
 
 menu()
 
