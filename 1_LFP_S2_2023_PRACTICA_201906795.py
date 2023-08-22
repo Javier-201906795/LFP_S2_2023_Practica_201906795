@@ -5,20 +5,14 @@ import os
 #Variables globales
 archivo_local = {'extension': None, 'validador': False, 'data': None}
 inventario = {}
-flagexistenciainventario = False
 banderas = {'archivoinventario': False, 'movimientos': False}
 errores = {'archivo-inv':[], 'archivo-mov':[],'errores-inv':False, 'errores-mov':False, 'errores-invtxt': True, 'general': False}
 
 contadores = {'automatizacion': 0}
 
-#Inicializar variables globales
-archivo_local['extension']= None
-archivo_local['validador']= False
-archivo_local['data']= None
 
 
-
-
+#/////////////////////////////////////////////////
 def mensajebienvenida():
     mensaje =  '----------------------------------------------------------\n'
     mensaje += 'Practica 1 - LAB. Lenguajes formales y de programacion\n'
@@ -27,6 +21,7 @@ def mensajebienvenida():
     mensaje += '---------------------------------------------------------\n'
     return mensaje
 
+#/////////////////////////////////////////////////
 def mensajeadvertenciaerrores():
    mensaje = '\n'
    mensaje += '**************** [ IMPORTANTE ] *******************\n'
@@ -40,11 +35,10 @@ def mensajeadvertenciaerrores():
    mensaje += 'S/N\n'
    return mensaje
 
+#/////////////////////////////////////////////////
 def menu():
-   opcionvalida = 0
-
-   
    mensaje =  '\n\n# Sistema de inventario:\n'
+   
    if (banderas['archivoinventario'] == True):
       mensaje += '## [ Inventario cargado ]\n'
    if (banderas['movimientos'] == True):
@@ -63,7 +57,6 @@ def menu():
    #Validar opcion
    try:
       opcion = int(opcion)
-      opcionvalida = opcion
    except:
       print("Ingrese un opcion numerica, porfavor vuelva a intentar.")
      
@@ -78,7 +71,7 @@ def menu():
    elif opcion == 4:
       opcion4()
 
-
+#/////////////////////////////////////////////////
 def abrirarchivo(extensionvalida):
    archivo_local['validador']= False
    #Mensaje
